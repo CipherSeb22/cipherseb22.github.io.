@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#090d21">
+<title>Entrevista Cero — Camino feliz | V3 funcional</title>
+<style>
+:root{--bg:#090d21;--night:#0b1128;--panel:#121a38;--panel2:#1b244a;--panel3:#222858;--stroke:#343c70;--text:#f7f6ff;--muted:#b2b6d4;--purple:#9354ff;--purple2:#5a2fb8;--orange:#ff8419;--green:#40d7a0;--cyan:#49c8ff;--red:#ff7b91;--radius:21px}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at 92% 8%,rgba(126,52,221,.25),transparent 31%),radial-gradient(circle at 1% 100%,rgba(93,45,217,.25),transparent 38%),var(--bg);color:var(--text);font:15px/1.55 system-ui,-apple-system,"Segoe UI",Arial,sans-serif;min-height:100vh}button,textarea,select{font:inherit}button{cursor:pointer}button:focus-visible,textarea:focus-visible,select:focus-visible{outline:3px solid #ffb267;outline-offset:3px}button:disabled{cursor:not-allowed;opacity:.48;filter:grayscale(.3)}strong{font-weight:780}h1,h2,h3,p{margin-top:0}.wrap{max-width:1600px;margin:0 auto;display:grid;grid-template-columns:246px minmax(0,1fr);min-height:100vh}
+.side{border-right:1px solid #303457;background:rgba(9,12,30,.91);padding:28px 18px;display:flex;flex-direction:column;gap:22px;position:sticky;top:0;height:100vh;z-index:10}.logo{display:flex;align-items:center;gap:3px;white-space:nowrap;min-width:0}.logo-icon{display:block;font-style:italic;font-weight:1000;font-size:47px;line-height:1;background:linear-gradient(146deg,#a566ff 0%,#6e30db 48%,#fff 74%,#ff8419 94%);color:transparent;background-clip:text;-webkit-background-clip:text;letter-spacing:-8px;padding-right:8px}.logo-rest{font-weight:900;font-size:19px;letter-spacing:-.6px}.logo-rest b{color:var(--orange)}.logo-side .logo-rest{font-size:17px}.logo-side .logo-icon{font-size:42px}.side-text{color:#8e93bb;font-weight:750;font-size:10px;letter-spacing:1.9px;text-transform:uppercase}.side-nav{display:flex;flex-direction:column;gap:8px}.side-btn{text-align:left;border:1px solid transparent;background:transparent;color:#a9add2;border-radius:14px;padding:12px 10px;display:flex;align-items:center;gap:10px;width:100%;font-weight:640;transition:.2s}.side-btn:hover:not(:disabled){background:#22204b;color:white}.side-btn.active{background:#38236a;border-color:#7342d2;color:#fff}.side-btn.done .step-num{background:#123b37;border-color:#218c6e;color:#62f2b7}.step-num{width:31px;height:31px;border-radius:10px;border:1px solid #3a3a65;display:grid;place-items:center;flex:none;font-size:11px;font-weight:800}.side-btn.active .step-num{background:var(--purple);border-color:var(--purple);color:#fff}.side-bottom{margin-top:auto;background:rgba(126,73,244,.1);border:1px solid #403268;border-radius:16px;padding:15px}.side-bottom strong{display:block;color:#d5baff;font-size:12px}.side-bottom p{font-size:12px;color:#999bbd;margin:6px 0 0}.main{min-width:0;padding:24px clamp(18px,4vw,58px) 50px}.topbar{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;min-height:38px;margin-bottom:23px}.crumb{font-size:11px;color:#9b9bc4;text-transform:uppercase;letter-spacing:1.7px;font-weight:770}.top-actions{display:flex;align-items:center;gap:9px;flex-wrap:wrap}.tag{font-size:11px;letter-spacing:.5px;font-weight:750;display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border:1px solid #513889;background:#312052;border-radius:25px;color:#e3cfff}.tag.orange{border-color:#8f542a;background:#43261c;color:#ffbc8c}.tag span{height:6px;width:6px;border-radius:100%;background:var(--green)}.screen{display:none;animation:fade .25s ease-out}.screen.active{display:block}@keyframes fade{from{opacity:.2;transform:translateY(9px)}to{opacity:1;transform:translateY(0)}}.eyebrow{font-size:12px;font-weight:900;color:#c09bff;letter-spacing:2px;text-transform:uppercase;margin-bottom:11px}.h1{font-size:clamp(41px,5.4vw,74px);font-weight:950;line-height:1.08;letter-spacing:-2.6px;margin:0 0 21px}.h1 em{font-style:normal;color:#ff941f}.h2{font-size:clamp(29px,3.8vw,47px);font-weight:890;line-height:1.15;letter-spacing:-1.3px;margin:0 0 14px}.lead{font-size:16px;color:#b9bad8;line-height:1.7;max-width:795px;margin-bottom:24px}.btn{border-radius:12px;border:1px solid #5c5681;background:#20264b;color:#fff;font-weight:750;min-height:47px;padding:11px 20px;transition:transform .16s,box-shadow .16s,filter .16s;display:inline-flex;align-items:center;justify-content:center;gap:10px}.btn:hover:not(:disabled){transform:translateY(-2px);filter:brightness(1.08)}.btn.primary{color:#1b0f13;border:0;background:linear-gradient(110deg,#ffa12f,#ff7e09);box-shadow:0 8px 26px #ff861b2b}.btn.ghost{background:#151a39;border-color:#504672}.btn.purple{background:linear-gradient(110deg,#723adb,#9947f6);border:0}.btn.small{min-height:35px;padding:6px 13px;font-size:12px}.btn.danger{background:transparent;color:#bdaccd;border-color:#373652}.actions{display:flex;flex-wrap:wrap;gap:12px;margin:24px 0 0}.hero{display:grid;grid-template-columns:1.02fr .98fr;gap:32px;align-items:center;min-height:calc(100vh - 130px)}.hero-blurb{max-width:670px}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:32px;max-width:600px}.stat{border:1px solid #493b75;background:#161932b8;border-radius:15px;padding:15px}.stat strong{font-size:21px;display:block}.stat small{color:#b2b0d0;font-size:11px}.preview{position:relative;background:radial-gradient(circle at 90% 0%,#7030c45c,transparent 44%),linear-gradient(140deg,#172049,#0b1230 80%);border:1px solid #5b3ca2;border-radius:25px;padding:24px;box-shadow:0 18px 55px #0006;overflow:hidden}.preview:after{content:"";position:absolute;width:360px;height:360px;border:2px solid #934df45c;border-radius:50%;right:-200px;top:-170px;pointer-events:none}.preview .mini-caption{color:#d6baff;font-size:12px;font-weight:850;letter-spacing:1.6px;text-transform:uppercase}.mock{position:relative;margin-top:21px;border:1px solid #42417c;border-radius:19px;padding:18px;background:#10152f;box-shadow:0 14px 45px #03061488}.mock-header{display:flex;justify-content:space-between;align-items:center;gap:15px;font-size:13px;margin-bottom:13px}.badge-round{background:#33205e;border:1px solid #5c3caa;border-radius:12px;color:#cba4ff;display:grid;place-items:center;width:40px;height:40px;font-size:23px}.mock-body{border-radius:13px;padding:13px;background:#20224a;color:#dddaf9;margin:10px 0;font-size:12px;max-width:90%}.mock-body.me{margin-left:auto;background:#5938ad;max-width:81%}.mock-foot{display:flex;align-items:center;gap:13px;background:#171c3e;border:1px solid #383a70;padding:12px;border-radius:13px;margin-top:18px}.round-score{height:50px;width:50px;border:4px solid #48d8a7;border-radius:50%;display:grid;place-items:center;font-weight:900;color:#6cf6ca}.hline{display:flex;justify-content:space-between;align-items:center;gap:15px;margin-bottom:18px;flex-wrap:wrap}.box{background:linear-gradient(165deg,#171d42,#111630);border:1px solid #393966;border-radius:19px;padding:23px}.box h3{margin:0 0 10px;font-size:19px}.box p{color:#b7b8d6}.choices{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px}.choice{min-height:146px;padding:21px 18px;background:#171b3d;border:1px solid #47406e;color:white;border-radius:18px;text-align:left;position:relative;transition:.18s}.choice:hover{border-color:#b180ff;transform:translateY(-2px)}.choice.selected{border-color:#fb8a21;background:linear-gradient(135deg,#292142,#1a1935);box-shadow:0 0 0 1px #fa893c66}.choice.selected:after{content:'✓';position:absolute;right:17px;top:13px;color:#fff;background:#ff8a16;width:25px;height:25px;border-radius:100%;text-align:center;font-weight:850}.choice .symbol{font-size:27px;color:#b87aff;margin-bottom:13px;display:block}.choice.selected .symbol{color:#ff941e}.choice strong{display:block;font-size:18px}.choice small{color:#adb1cf;font-size:12px}.bar{width:100%;height:10px;border-radius:20px;background:#32355b;overflow:hidden}.bar>div{height:100%;background:linear-gradient(90deg,#843fff,#51c5ff);width:0%;transition:width .4s}.bottom{display:flex;align-items:center;justify-content:space-between;gap:13px;flex-wrap:wrap;margin-top:25px}.hint{font-size:12px;color:#afb0cf}.cols{display:grid;grid-template-columns:1fr 1fr;gap:16px}.input{width:100%;background:#0b112b;color:#f9f7ff;border:1px solid #474971;padding:15px;border-radius:12px;resize:vertical;min-height:235px;outline:none}.input:focus{border-color:#a768ff}.caps{color:#b7addd;text-transform:uppercase;letter-spacing:1px;font-size:11px;font-weight:850;display:block;margin-bottom:10px}.big-score{font-size:43px;font-weight:970;color:#6ad2ff;letter-spacing:-2px}.row-list{list-style:none;margin:0;padding:0}.row-list li{padding:9px 0;border-bottom:1px solid #34345c;font-size:13px;color:#d4d3e6;display:flex;gap:10px}.row-list li:last-child{border-bottom:0}.ok{color:#64e5ad;font-weight:900}.warn{color:#ffb06a;font-weight:900}.note{font-size:12px;line-height:1.6;color:#a9a7cc;background:#222044a6;padding:12px 14px;border-radius:12px;border:1px solid #41395c;margin-top:15px}.progress-track{display:flex;gap:8px;align-items:center}.progress-track strong{font-size:12px;white-space:nowrap;color:#bbafe8}.steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:11px}.stage{background:#191d3d;border:1px solid #3e3a6a;border-radius:16px;padding:17px}.stage .stage-n{font-size:11px;color:#be9bff;font-weight:870}.stage h3{font-size:17px;margin:11px 0 9px}.stage p{color:#aeb4d2;font-size:12px;margin:0}.chips{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}.chip{display:inline-block;background:#272154;border-radius:99px;border:1px solid #4b3a87;padding:8px 12px;color:#d4bbff;font-size:12px;font-weight:700}.quiz{background:#1a1d42;border:1px solid #544489;border-radius:18px;padding:20px}.quiz-options{display:flex;gap:9px;flex-wrap:wrap;margin:14px 0 0}.quiz-option{background:#141b35;color:white;padding:10px 21px;border-radius:10px;border:1px solid #484474;font-weight:850;transition:.15s}.quiz-option:hover{border-color:#b689ff}.quiz-option.good{background:#12583f;border-color:#51dfaa}.quiz-option.bad{background:#673145;border-color:#e38594}.response{font-size:12px;min-height:20px;color:#b6e9d7;margin:13px 0 0}.chat-grid{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(275px,.8fr);gap:16px}.chat{border:1px solid #443a74;background:#131833;border-radius:19px;display:flex;flex-direction:column;min-height:575px;overflow:hidden}.chat-head{padding:15px 20px;display:flex;align-items:center;gap:11px;border-bottom:1px solid #33305b}.bot-icon{height:38px;width:38px;background:linear-gradient(145deg,#8b53fa,#46218d);border:1px solid #ae7aff;border-radius:12px;display:grid;place-items:center;font-size:21px}.chat-head small{color:#a5abcc}.messages{padding:21px;flex:1;height:310px;overflow-y:auto;display:flex;flex-direction:column;gap:15px}.bubble{font-size:13px;line-height:1.55;max-width:89%;padding:14px 17px;border-radius:15px;background:#28294f;border:1px solid #3d3c6d;white-space:pre-wrap}.bubble.bot{border-bottom-left-radius:3px;align-self:flex-start}.bubble.user{background:linear-gradient(135deg,#7136cc,#4d2ca4);align-self:flex-end;border-color:#8f58ed;border-bottom-right-radius:3px}.chat-submit{border-top:1px solid #3b3365;padding:13px;background:#131731}.chat-submit textarea{height:70px;min-height:70px}.chat-form-row{display:flex;align-items:center;justify-content:space-between;gap:11px;flex-wrap:wrap;margin-top:10px}.summary-side .box{margin-bottom:13px}.question-bubbles{display:flex;flex-direction:column;gap:10px}.question-pill{border:1px solid #35375e;background:#1b2043;border-radius:11px;padding:12px 13px;color:#b2b6d2;display:flex;gap:10px;align-items:center;font-size:13px}.question-pill.done{border-color:#216b57;background:#14352d;color:#99eacb}.question-pill.active{border-color:#714dbe;background:#312058;color:#ead9ff}.results{margin-top:17px;padding:23px;border:1px solid #8050db;background:linear-gradient(140deg,#221a45,#151933);border-radius:20px}.result-grid{display:grid;grid-template-columns:180px 1fr;gap:22px;align-items:center}.result-donut{--size:150px;height:var(--size);width:var(--size);display:grid;place-items:center;border-radius:50%;background:conic-gradient(#5de5b2 0% 75%,#373356 75% 100%);position:relative;margin:auto}.result-donut:before{content:'';position:absolute;inset:16px;background:#171731;border-radius:50%}.result-donut strong{position:relative;font-size:34px}.result-donut small{position:relative;color:#b8b3d0;font-size:11px}.result-metrics{display:flex;gap:8px;flex-wrap:wrap}.result-badge{display:inline-block;background:#15493c;color:#9df5cb;border:1px solid #24795f;font-size:11px;font-weight:800;padding:7px 10px;border-radius:30px}.footer{border-top:1px solid #2c2c51;color:#8787aa;text-align:center;font-size:11px;margin-top:55px;padding-top:20px;letter-spacing:1px}.hidden{display:none!important}.mobile-brand{display:none}.mobile-nav{display:none;width:100%;min-width:0;max-width:100%}.toast{position:fixed;right:18px;bottom:18px;z-index:50;padding:14px 19px;border-radius:14px;background:#32215c;border:1px solid #a67cfa;box-shadow:0 15px 50px #0009;color:#fff;font-weight:750;font-size:13px;max-width:335px}.caption-strong{font-size:13px;color:#d8d0f1;font-weight:650}
+@media(max-width:1080px){.wrap{grid-template-columns:minmax(0,1fr)}.side{display:none}.main{padding:18px 20px 40px}.mobile-brand{display:flex;margin:0 0 14px}.mobile-nav{display:flex;overflow:auto;gap:8px;padding:10px 0 17px}.mobile-nav button{white-space:nowrap;font-size:12px;background:#191a39;color:#c4b8df;border:1px solid #463c6a;border-radius:25px;padding:9px 12px}.mobile-nav button.active{background:#563196;border-color:#8850e1;color:#fff}.hero{min-height:unset;padding-top:20px}}@media(max-width:760px){.hero,.cols,.chat-grid{grid-template-columns:1fr}.choices{grid-template-columns:repeat(2,minmax(0,1fr))}.steps{grid-template-columns:repeat(2,minmax(0,1fr))}.hero .preview{max-width:650px}.h1{font-size:44px}.topbar{margin-bottom:10px}.stats{max-width:100%}.chat{min-height:485px}}@media(max-width:600px){.crumb{display:none}.topbar{min-height:41px}.mobile-nav{width:100%;max-width:100%}}@media(max-width:460px){.choices,.steps{grid-template-columns:1fr}.stat{padding:11px}.stat strong{font-size:15px}.stat small{font-size:10px}.top-actions .tag.orange{display:none}.result-grid{grid-template-columns:1fr}.h1{font-size:38px}.box{padding:17px}.main{padding:16px 14px 34px}.logo-rest{font-size:17px}.btn{width:100%}.actions>.btn{flex:1 1 100%}.bottom>.btn{width:100%}}
+
+/* Versión 2: respuestas y evaluación visibles de inmediato */
+.live-score{display:flex;align-items:center;gap:15px;padding:12px 14px;border-radius:13px;border:1px solid #4c387e;background:linear-gradient(140deg,#28214d,#141a37)}
+.live-score strong{font-size:29px;letter-spacing:-1px;color:#93e6ff;white-space:nowrap}
+.live-score span{display:block;color:#d0c4ee;font-size:12px;line-height:1.45}
+.answer-check{margin-top:12px;padding:11px 12px;background:#183d35;border:1px solid #2b8e72;border-radius:11px;color:#a2f2ce;font-weight:650;font-size:12px}
+.sent-inline{margin:10px 2px 0;color:#8aefc6;font-weight:750;font-size:12px;min-height:17px}
+#answerHistory{margin:12px 0 0;padding-left:20px;color:#c8c5e0;font-size:12px}
+#answerHistory li{padding:4px 0}
+#showResult{margin-top:12px;width:100%}
+#resultArea{scroll-margin-top:28px}
+.notice-small{font-size:12px;line-height:1.5;color:#beb9d5;margin-top:10px}
+</style>
+</head>
+<body>
+<div class="wrap">
+<aside class="side">
+  <div class="logo logo-side" aria-label="Entrevista Cero"><span class="logo-icon" aria-hidden="true">E</span><span class="logo-rest">ntrevista <b>Cero</b></span></div>
+  <div><div class="side-text">CAMINO FELIZ · 5 PANTALLAS</div><nav class="side-nav" aria-label="Navegación de la demostración" id="sideNav">
+    <button class="side-btn active" data-go="0"><span class="step-num">01</span> Bienvenida</button>
+    <button class="side-btn" data-go="1" disabled><span class="step-num">02</span> Elegir vacante</button>
+    <button class="side-btn" data-go="2" disabled><span class="step-num">03</span> Hoja de vida</button>
+    <button class="side-btn" data-go="3" disabled><span class="step-num">04</span> Pruebas y etapas</button>
+    <button class="side-btn" data-go="4" disabled><span class="step-num">05</span> Entrevista y resultado</button>
+  </nav></div>
+  <div class="side-bottom"><strong>◈ Prototipo académico</strong><p>Demostración interactiva sin IA conectada ni datos almacenados en un servidor. Las evaluaciones son orientativas.</p></div>
+</aside>
+<main class="main">
+  <div class="logo mobile-brand" aria-label="Entrevista Cero"><span class="logo-icon" aria-hidden="true">E</span><span class="logo-rest">ntrevista <b>Cero</b></span></div>
+  <header class="topbar"><span class="crumb">INSTITUCIÓN UNIVERSITARIA PASCUAL BRAVO / PROTOTIPO UX</span><div class="top-actions"><span class="tag"><span></span> CAMINO FELIZ INTERACTIVO</span><span class="tag orange">EJEMPLO ACADÉMICO</span><button class="btn danger small" id="resetAll">↺ Reiniciar</button></div></header>
+  <nav class="mobile-nav" aria-label="Pasos de la demostración" id="mobileNav"></nav>
+
+  <!-- PANTALLA 1 -->
+  <section class="screen active" id="screen-0" aria-label="Bienvenida" tabindex="-1">
+    <div class="hero">
+      <div class="hero-blurb"><p class="eyebrow">PREPÁRATE PARA TU PRIMERA OPORTUNIDAD</p><h1 class="h1">Tu primera oportunidad merece más que <em>improvisación.</em></h1><p class="lead">Practica antes de una entrevista real. Elige el empleo que te interesa, revisa tu hoja de vida y recibe recomendaciones para presentar mejor tus capacidades.</p>
+        <div class="actions"><button class="btn primary" data-next="1">Comenzar preparación <span>→</span></button><button class="btn ghost" id="explainFlow">¿Qué voy a hacer? ▷</button></div>
+        <div class="stats"><div class="stat"><strong>01</strong><small>Elige tu vacante</small></div><div class="stat"><strong>02</strong><small>Conoce el proceso</small></div><div class="stat"><strong>03</strong><small>Practica y mejora</small></div></div>
+      </div>
+      <div class="preview"><div class="mini-caption">✦ Así se vería tu preparación</div><div class="mock"><div class="mock-header"><div style="display:flex;align-items:center;gap:10px"><div class="badge-round">✦</div><div><strong>Entrevistador virtual</strong><div style="font-size:11px;color:#63dfa9">● Simulación guiada</div></div></div><div style="color:#b9aecc">•••</div></div><div class="mock-body">Hola, Sebastián. ¿Por qué quieres trabajar como desarrollador junior?</div><div class="mock-body me">Me interesa aplicar lo que he aprendido y aportar con mis proyectos académicos.</div><div class="mock-foot"><div class="round-score">✓</div><div><strong>Practica sin presión</strong><div style="font-size:11px;color:#b8b3d0">Recibe recomendaciones para seguir mejorando</div></div></div></div></div>
+    </div>
+  </section>
+
+  <!-- PANTALLA 2 -->
+  <section class="screen" id="screen-1" aria-label="Elegir vacante" tabindex="-1">
+    <p class="eyebrow">PASO 01 · TU OBJETIVO</p><h2 class="h2">¿Para qué tipo de empleo quieres prepararte?</h2><p class="lead">Selecciona el cargo que te interesa. En este camino feliz usaremos vacantes de ejemplo para adaptar el análisis, la orientación y las preguntas de entrevista.</p>
+    <div class="choices" id="jobChoices">
+      <button class="choice selected" data-job="dev" aria-pressed="true"><span class="symbol">⌘</span><strong>Desarrollador junior</strong><small>Programación y proyectos</small></button>
+      <button class="choice" data-job="admin" aria-pressed="false"><span class="symbol">▣</span><strong>Auxiliar administrativo</strong><small>Organización y ofimática</small></button>
+      <button class="choice" data-job="service" aria-pressed="false"><span class="symbol">◉</span><strong>Servicio al cliente</strong><small>Comunicación y empatía</small></button>
+      <button class="choice" data-job="sales" aria-pressed="false"><span class="symbol">▥</span><strong>Ventas / comercial</strong><small>Atención y negociación</small></button>
+      <button class="choice" data-job="design" aria-pressed="false"><span class="symbol">✳</span><strong>Diseño / creativo</strong><small>Creatividad y proyectos</small></button>
+      <button class="choice" data-job="other" aria-pressed="false"><span class="symbol">▦</span><strong>Otra vacante</strong><small>Preparación general</small></button>
+    </div>
+    <div class="box" style="margin-top:16px;max-width:660px"><label class="caps" for="experience">Nivel de experiencia laboral</label><select id="experience" style="width:100%;background:#0b112b;color:#f6f5ff;border:1px solid #4b4472;padding:13px 14px;border-radius:11px"><option value="Sin experiencia">Sin experiencia</option><option value="Prácticas o pasantías">Prácticas o pasantías</option><option value="Primera experiencia">Primera experiencia</option></select></div>
+    <div class="bottom"><button class="btn ghost" data-go="0">← Regresar</button><span class="hint">Vacantes de demostración, no ofertas reales.</span><button class="btn primary" data-next="2">Continuar con mi hoja de vida →</button></div>
+  </section>
+
+  <!-- PANTALLA 3 -->
+  <section class="screen" id="screen-2" aria-label="Revisar hoja de vida" tabindex="-1">
+    <p class="eyebrow">PASO 02 · TU PERFIL</p><h2 class="h2">Tu hoja de vida frente a la vacante.</h2><p class="lead">En la plataforma propuesta, la IA analizaría la hoja de vida según una oferta. En esta demostración el análisis se realiza <strong>solo con coincidencias de palabras clave</strong> en un texto ficticio.</p>
+    <div class="cols">
+      <div class="box"><div class="hline"><h3>Hoja de vida de ejemplo</h3><button class="btn small ghost" id="restoreCV">↺ Restaurar ejemplo</button></div><label for="cvInput" class="caps">Texto editable · datos de demostración</label><textarea class="input" id="cvInput" spellcheck="false"></textarea><div class="actions"><button class="btn purple" id="analyzeCV">✦ Analizar hoja de vida</button></div><p class="hint" style="margin:12px 0 0">No escribas información personal real. El análisis ocurre en este navegador.</p></div>
+      <div class="box"><h3>Análisis ilustrativo</h3><p style="font-size:13px;color:#aaaacc;margin-bottom:10px">Coincidencia de conceptos con el perfil: <strong id="cvJobName">Desarrollador junior</strong></p><div class="progress-track"><div class="bar"><div id="cvBar"></div></div><strong class="big-score" id="cvScore">—</strong></div><div class="cols" style="margin-top:15px"><div><strong style="color:#64e3ad;font-size:13px">✓ Fortalezas detectadas</strong><ul class="row-list" id="cvStrengths"><li>Presiona «Analizar hoja de vida».</li></ul></div><div><strong style="color:#ffaf77;font-size:13px">△ Oportunidades de mejora</strong><ul class="row-list" id="cvImprovements"><li>Aquí aparecerán sugerencias.</li></ul></div></div><div class="note">El porcentaje no predice contratación ni equivale a una evaluación real con inteligencia artificial.</div></div>
+    </div>
+    <div class="bottom"><button class="btn ghost" data-go="1">← Regresar</button><span class="hint" id="cvNextHint">Primero analiza la hoja de vida de ejemplo.</span><button class="btn primary" data-next="3" id="cvNext" disabled>Continuar a pruebas →</button></div>
+  </section>
+
+  <!-- PANTALLA 4 -->
+  <section class="screen" id="screen-3" aria-label="Pruebas y etapas" tabindex="-1">
+    <p class="eyebrow">PASO 03 · LO QUE PODRÍAS ENCONTRAR</p><h2 class="h2">Conoce el proceso de selección.</h2><p class="lead">Estas etapas son orientativas y pueden cambiar según la empresa y la vacante elegida: <strong id="routeJob">Desarrollador junior</strong>.</p>
+    <div class="steps"><div class="stage"><div class="stage-n">01 · POSTULACIÓN</div><h3>Revisión de perfil</h3><p>Comparación de tu hoja de vida con los requisitos del cargo.</p></div><div class="stage"><div class="stage-n">02 · EVALUACIONES</div><h3>Pruebas y ejercicios</h3><p>Razonamiento, habilidades y posibles pruebas técnicas.</p></div><div class="stage"><div class="stage-n">03 · TALENTO HUMANO</div><h3>Entrevista inicial</h3><p>Motivaciones, fortalezas y comunicación personal.</p></div><div class="stage"><div class="stage-n">04 · ÁREA DEL CARGO</div><h3>Entrevista especializada</h3><p>Proyectos, habilidades y situaciones relacionadas con el empleo.</p></div></div>
+    <div class="cols" style="margin-top:18px"><div class="box"><h3>Habilidades que podrían evaluar</h3><div class="chips" id="skillsTags"></div><div class="note">Este módulo busca familiarizar al usuario, no garantizar respuestas correctas en pruebas reales.</div></div>
+      <div class="quiz"><h3>Prueba de ejemplo · Razonamiento lógico</h3><p style="color:#cfcee4;font-size:14px">¿Qué número sigue en la secuencia <strong>2, 4, 8, 16, ...</strong>?</p><div class="quiz-options"><button class="quiz-option" data-quiz="20">20</button><button class="quiz-option" data-quiz="24">24</button><button class="quiz-option" data-quiz="32">32</button><button class="quiz-option" data-quiz="36">36</button></div><p id="quizFeedback" class="response" role="status">Elige una opción para continuar el recorrido.</p></div></div>
+    <div class="bottom"><button class="btn ghost" data-go="2">← Regresar</button><span class="hint" id="quizHint">Resuelve el ejemplo para desbloquear la entrevista.</span><button class="btn primary" data-next="4" id="quizNext" disabled>Practicar entrevista →</button></div>
+  </section>
+
+  <!-- PANTALLA 5 -->
+  <section class="screen" id="screen-4" aria-label="Entrevista y resultado" tabindex="-1">
+    <p class="eyebrow">PASO 04 · PRÁCTICA Y RETROALIMENTACIÓN</p><h2 class="h2">Simulación de entrevista.</h2><p class="lead">Practica tres preguntas relacionadas con <strong id="chatJob">Desarrollador junior</strong>. Puedes escribir tus respuestas o usar las de ejemplo para mostrar el camino feliz en clase.</p>
+    <div class="chat-grid">
+      <div class="chat"><div class="chat-head"><span class="bot-icon">✦</span><div><strong>Entrevistador virtual · Demostración</strong><div><small id="chatStatus">Pregunta 1 de 3</small></div></div><div style="margin-left:auto"><span class="tag" style="font-size:10px">SIN IA REAL</span></div></div><div class="messages" id="messages" aria-live="polite"></div><form class="chat-submit" id="chatForm"><div id="jsStatus" class="sent-inline" style="border:1px solid #9b6f3b;background:#272037;color:#ffd3aa;font-weight:800;padding:10px;border-radius:9px;margin-bottom:12px">⚠ Comprobando interactividad…</div><label class="caps" for="chatInput">Tu respuesta</label><textarea id="chatInput" class="input" style="min-height:72px;height:72px" placeholder="Escribe aquí o usa una respuesta de ejemplo..."></textarea><div class="chat-form-row"><button class="btn ghost small" type="button" id="sampleAnswer">Usar respuesta de ejemplo</button><button class="btn purple" type="button" id="sendAnswer" onclick="window.ECEnviarRespuesta && window.ECEnviarRespuesta()">Enviar y evaluar respuesta ↗</button></div><div class="sent-inline" id="sentStatus" aria-live="polite">Escribe tu respuesta y presiona «Enviar y evaluar respuesta».</div></form></div>
+      <div class="summary-side"><div class="box"><h3>Progreso de la entrevista</h3><div class="progress-track" style="margin:16px 0"><div class="bar"><div id="interviewProgress"></div></div><strong style="font-size:12px;color:#a9e2ff" id="interviewCount">0 / 3</strong></div><div class="question-bubbles" id="questionProgress"></div></div>
+      <div class="box" id="liveScoreBox"><h3>Evaluación en vivo · demostración</h3>
+        <div class="live-score"><strong id="liveGrade">—</strong><div><b>Indicadores de práctica</b><span id="liveGradeNote">Envía la primera respuesta para ver la evaluación.</span></div></div>
+        <ol id="answerHistory"></ol>
+        <div class="notice-small">La nota es ilustrativa: contamos señales sencillas del texto, no evaluamos tus habilidades reales ni utilizamos IA conectada.</div>
+        <button class="btn primary hidden" id="showResult" type="button">Ver mi resultado final ↓</button>
+      </div><div class="box"><h3>Consejo para tu presentación</h3><p style="font-size:13px;color:#b8b7d3">En el video puedes mostrar cómo el usuario responde una pregunta y recibe un resultado. Esta versión usa ejemplos y reglas sencillas: no analiza la personalidad ni reemplaza a un reclutador.</p><button class="btn ghost small" id="restartInterview" type="button">↺ Repetir entrevista</button></div></div>
+    </div>
+    <div id="resultArea" class="results hidden" aria-live="polite"><div class="hline"><div><p class="eyebrow" style="margin-bottom:5px">FIN DEL CAMINO FELIZ</p><h2 class="h2" style="font-size:28px;margin:0">Resultado de tu práctica</h2></div><span class="result-badge">✓ Preparación completada</span></div><div class="result-grid"><div class="result-donut"><div style="text-align:center"><strong id="resultScore">—</strong><br><small>calificación orientativa</small></div></div><div><h3>Retroalimentación orientativa</h3><ul id="resultFeedback" class="row-list"></ul><div class="note">Se observan tres señales sencillas por respuesta: extensión, ejemplos pertinentes y organización. La calificación es ilustrativa, no equivale a una evaluación de selección ni predice una contratación.</div></div></div><div class="actions"><button class="btn primary" id="downloadResult">↓ Descargar resumen</button><button class="btn ghost" id="restartFromEnd">↺ Volver a comenzar</button></div></div>
+    <div class="bottom" id="interviewBottom"><button class="btn ghost" data-go="3">← Regresar a pruebas</button><span class="hint">Al responder las tres preguntas aparecerá la retroalimentación aquí mismo.</span></div>
+  </section>
+
+  <footer class="footer">ENTREVISTA CERO · PROTOTIPO ACADÉMICO INTERACTIVO · MEDELLÍN, COLOMBIA · 2026
+    <div style="margin-top:12px"><a id="backToProject" href="#" class="hidden" style="color:#d6b6ff;font-weight:750" target="_blank" rel="noopener noreferrer">← Volver al sitio del proyecto</a></div>
+  </footer>
+</main>
+</div>
+<div role="status" aria-live="polite" id="toast" class="toast hidden"></div>
+<script>
+(()=>{'use strict';
+// Cuando esté publicado tu Google Sites, pega su URL entre comillas para habilitar el regreso.
+const PROJECT_SITE_URL='';
+const byId=id=>document.getElementById(id);const screens=[...document.querySelectorAll('.screen')];let screen=0,highest=0,job='dev',cvReady=false,quizReady=false,question=0,answers=[],gradeResults=[];
+const jobs={
+ dev:{title:'Desarrollador junior',keywords:['programación','javascript','html','css','lógica','proyectos'],skills:['Lógica','Resolución de problemas','Trabajo en equipo','Ejercicios técnicos'],qs:['Cuéntame sobre ti y por qué te interesa ser desarrollador junior.','¿Qué proyecto académico demuestra lo que has aprendido?','¿Qué harías si recibes una tarea técnica que aún no sabes resolver?']},
+ admin:{title:'Auxiliar administrativo',keywords:['excel','organización','documentos','ofimática','atención','seguimiento'],skills:['Organización','Atención al detalle','Ofimática','Comunicación'],qs:['Cuéntame sobre ti y qué te interesa del trabajo administrativo.','¿Cómo organizarías varias tareas con plazos cercanos?','¿Cómo asegurarías la calidad de un informe antes de entregarlo?']},
+ service:{title:'Servicio al cliente',keywords:['comunicación','empatía','cliente','escucha','solución','equipo'],skills:['Escucha activa','Empatía','Comunicación','Solución de situaciones'],qs:['Cuéntame sobre ti y por qué te interesa el servicio al cliente.','¿Cómo atenderías a un cliente molesto?','Cuéntame un ejemplo en el que ayudaste a resolver un problema.']},
+ sales:{title:'Ventas / comercial',keywords:['ventas','cliente','objetivo','negociación','comunicación','seguimiento'],skills:['Comunicación','Negociación','Seguimiento','Orientación a resultados'],qs:['¿Qué te motiva a trabajar en ventas?','¿Cómo explicarías un producto a un cliente que no lo conoce?','¿Cómo reaccionarías si no cumples una meta de ventas?']},
+ design:{title:'Diseño / creativo',keywords:['diseño','creatividad','figma','canva','portafolio','proyectos'],skills:['Creatividad','Comunicación visual','Portafolio','Trabajo con comentarios'],qs:['Cuéntame sobre ti y qué te atrae del diseño.','¿Qué proyecto de tu portafolio mostrarías primero y por qué?','¿Cómo responderías a una solicitud de cambios en tu diseño?']},
+ other:{title:'Otra vacante',keywords:['aprendizaje','comunicación','equipo','proyectos','organización','habilidades'],skills:['Comunicación','Organización','Trabajo en equipo','Aprendizaje'],qs:['Cuéntame sobre ti y qué buscas en tu primer empleo.','¿Qué habilidades aprendiste durante tus estudios?','¿Cómo manejarías una situación nueva en el trabajo?']}
+};
+const demoCV='Estudiante de Tecnología en Desarrollo de Software con interés en programación y desarrollo web. Conozco HTML, CSS y JavaScript. He participado en proyectos académicos de lógica, solución de problemas y trabajo en equipo. Quiero seguir aprendiendo y aportar a mi primera experiencia laboral.';
+const cvSamples={admin:'Estudiante con conocimientos de Excel, organización, manejo de documentos y herramientas de ofimática. Me interesa la atención al detalle y el seguimiento de tareas administrativas.',service:'Estudiante con facilidad para la comunicación, escucha activa y empatía. Me gusta trabajar en equipo y encontrar soluciones para ayudar a los clientes.',sales:'Estudiante con habilidades de comunicación, interés en ventas, servicio al cliente y seguimiento de objetivos. He trabajado en proyectos académicos y disfruto aprender de negociación.',design:'Estudiante creativo con interés en diseño y comunicación visual. He realizado proyectos con Canva y Figma y estoy construyendo mi portafolio.',other:'Estudiante con interés en mi primer empleo, capacidad de aprendizaje, comunicación y trabajo en equipo. He participado en proyectos académicos y fortalecido habilidades de organización.'};
+const demoAnswers=['Soy estudiante y quiero dar mis primeros pasos laborales. Durante mi formación he aprendido a resolver problemas y trabajar en equipo, y deseo aplicar esos conocimientos en proyectos reales.','Participé en un proyecto académico con mis compañeros. Organicé mis tareas, investigué soluciones y aprendí a presentar resultados, así que puedo mostrar lo que sé hacer aunque todavía no tenga experiencia formal.','Primero analizaría la tarea, investigaría el tema y probaría una solución. Si necesitara ayuda, preguntaría a un compañero y explicaría mis avances para seguir aprendiendo.'];
+const steps=['Bienvenida','Elegir vacante','Hoja de vida','Pruebas y etapas','Entrevista y resultado'];
+const escapeHtml=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));const normalize=s=>String(s).toLocaleLowerCase('es').normalize('NFD').replace(/[\u0300-\u036f]/g,'');
+function toast(msg){const el=byId('toast');el.textContent=msg;el.classList.remove('hidden');clearTimeout(toast.timer);toast.timer=setTimeout(()=>el.classList.add('hidden'),3100)}
+function updateNav(){document.querySelectorAll('.side-btn').forEach((b,i)=>{b.disabled=i>highest;b.classList.toggle('active',i===screen);b.classList.toggle('done',i<screen);b.setAttribute('aria-current',i===screen?'step':'false')});byId('mobileNav').innerHTML=steps.map((s,i)=>`<button data-go="${i}" ${i>highest?'disabled':''} class="${i===screen?'active':''}">${i+1}. ${escapeHtml(s)}</button>`).join('')}
+function navigate(n){if(!Number.isInteger(n)||n<0||n>=screens.length||n>highest+1)return;if(n===3&&!cvReady){toast('Primero analiza la hoja de vida.');return;}if(n===4&&!quizReady){toast('Primero resuelve el mini ejercicio.');return;}screen=n;highest=Math.max(highest,n);screens.forEach((el,i)=>{el.classList.toggle('active',i===n);el.setAttribute('aria-hidden',i===n?'false':'true')});updateNav();window.scrollTo({top:0,behavior:'instant'})}
+document.addEventListener('click',e=>{const b=e.target.closest('[data-go],[data-next]');if(b){navigate(Number(b.dataset.go??b.dataset.next))}});
+byId('explainFlow').addEventListener('click',()=>toast('Cinco pantallas enlazadas: vacante → CV → pruebas → entrevista y resultado.'));
+function chooseJob(id){job=id;document.querySelectorAll('[data-job]').forEach(b=>{b.classList.toggle('selected',b.dataset.job===id);b.setAttribute('aria-pressed',b.dataset.job===id?'true':'false')});byId('cvInput').value=id==='dev'?demoCV:cvSamples[id];byId('cvJobName').textContent=jobs[id].title;byId('routeJob').textContent=jobs[id].title;byId('chatJob').textContent=jobs[id].title;byId('skillsTags').innerHTML=jobs[id].skills.map(s=>`<span class="chip">${escapeHtml(s)}</span>`).join('');resetCVAnalysis();resetQuiz();resetChat()}
+document.querySelectorAll('[data-job]').forEach(b=>b.addEventListener('click',()=>chooseJob(b.dataset.job)));
+function resetCVAnalysis(){cvReady=false;byId('cvScore').textContent='—';byId('cvBar').style.width='0%';byId('cvStrengths').innerHTML='<li>Presiona «Analizar hoja de vida».</li>';byId('cvImprovements').innerHTML='<li>Aquí aparecerán sugerencias.</li>';byId('cvNext').disabled=true;byId('cvNextHint').textContent='Primero analiza la hoja de vida de ejemplo.';if(highest>2)highest=2;updateNav()}
+byId('cvInput').value=demoCV;byId('restoreCV').addEventListener('click',()=>{byId('cvInput').value=job==='dev'?demoCV:cvSamples[job];resetCVAnalysis();toast('Se cargó el CV ficticio de ejemplo.')});
+byId('cvInput').addEventListener('input',resetCVAnalysis);
+byId('analyzeCV').addEventListener('click',()=>{const txt=normalize(byId('cvInput').value.trim());if(txt.length<20){toast('Escribe al menos 20 caracteres o restaura el ejemplo.');return;}const terms=jobs[job].keywords;const matched=terms.filter(t=>txt.includes(normalize(t)));const missing=terms.filter(t=>!matched.includes(t));const percent=Math.round(100*matched.length/terms.length);byId('cvScore').textContent=percent+' %';byId('cvBar').style.width=percent+'%';byId('cvStrengths').innerHTML=(matched.length?matched:['No se identificaron términos específicos']).map(t=>`<li><span class="ok">✓</span>${escapeHtml(t)}</li>`).join('');byId('cvImprovements').innerHTML=(missing.length?missing:['Incluiste todos los términos del ejemplo']).map(t=>`<li><span class="warn">↗</span>${escapeHtml(t)}</li>`).join('');cvReady=true;byId('cvNext').disabled=false;byId('cvNextHint').textContent='✓ Análisis de ejemplo completado.';toast('¡Listo! Ya puedes avanzar a las pruebas.');});
+function resetQuiz(){quizReady=false;document.querySelectorAll('[data-quiz]').forEach(b=>{b.classList.remove('good','bad');b.disabled=false});byId('quizFeedback').textContent='Elige una opción para continuar el recorrido.';byId('quizNext').disabled=true;byId('quizHint').textContent='Resuelve el ejemplo para desbloquear la entrevista.';if(highest>3)highest=3;updateNav()}
+document.querySelectorAll('[data-quiz]').forEach(b=>b.addEventListener('click',()=>{const correct=b.dataset.quiz==='32';document.querySelectorAll('[data-quiz]').forEach(v=>v.classList.remove('good','bad'));b.classList.add(correct?'good':'bad');byId('quizFeedback').textContent=correct?'✓ ¡Correcto! La secuencia duplica cada número. Puedes iniciar la entrevista.':'Prueba otra vez: cada término es el doble del anterior.';if(correct){quizReady=true;byId('quizNext').disabled=false;byId('quizHint').textContent='✓ Ejercicio completado. Continúa con la entrevista.'}}));
+function addMsg(who,txt){const d=document.createElement('div');d.className='bubble '+who;d.textContent=txt;byId('messages').appendChild(d);byId('messages').scrollTop=byId('messages').scrollHeight}
+function updateChatProgress(){byId('interviewCount').textContent=question+' / 3';byId('interviewProgress').style.width=Math.round(question/3*100)+'%';byId('chatStatus').textContent=question<3?'Pregunta '+(question+1)+' de 3':'Práctica finalizada';byId('questionProgress').innerHTML=jobs[job].qs.map((q,i)=>`<div class="question-pill ${i<question?'done':i===question?'active':''}"><strong>${i<question?'✓':i+1}</strong><span>${['Presentación personal','Tu experiencia y proyectos','Respuesta ante un reto'][i]}</span></div>`).join('')}
+function resetChat(){
+ question=0;answers=[];gradeResults=[];
+ byId('messages').innerHTML='';
+ byId('chatInput').disabled=false;byId('sampleAnswer').disabled=false;byId('sendAnswer').disabled=false;
+ byId('chatInput').value='';byId('resultArea').classList.add('hidden');byId('showResult').classList.add('hidden');
+ byId('sentStatus').textContent='Escribe tu respuesta y presiona «Enviar y evaluar respuesta».';
+ byId('liveGrade').textContent='—';byId('liveGradeNote').textContent='Envía la primera respuesta para ver la evaluación.';
+ byId('answerHistory').innerHTML='';
+ addMsg('bot','¡Hola! Soy tu entrevistador de práctica para '+jobs[job].title+'.\n\n'+jobs[job].qs[0]);
+ updateChatProgress()
+}
+function scoreAnswer(txt){
+ const normalized=normalize(txt);
+ const words=txt.trim().split(/\s+/).filter(Boolean);
+ const details=words.length>=17;
+ const realExamples=/(?:\bproyect|\bestudi|\buniversidad|\baprend|\bequipo|\bpractic|\bexperien|\bcurso|\btrabaj|\bcliente|\btarea|\bactividad|\bresolv|\blogr|\binvestig|\bdesarroll)/.test(normalized);
+ const structured=/(?:\bporque\b|\bprimero\b|\bdespues\b|\bluego\b|\bpara\b|\bpor ejemplo\b|\bcuando\b|\bfinalmente\b|\basi\b|\bsiempre\b)/.test(normalized);
+ const points=Number(details)+Number(realExamples)+Number(structured);
+ return {points,signals:[details,realExamples,structured],words:words.length};
+}
+function updateLiveGrade(){
+ const points=gradeResults.reduce((sum,r)=>sum+r.points,0);
+ const max=gradeResults.length*3;
+ const pct=max?Math.round(100*points/max):0;
+ byId('liveGrade').textContent=max?pct+'/100':'—';
+ byId('liveGradeNote').textContent=gradeResults.length+' de 3 respuestas registradas. '+points+' de '+max+' indicadores observados hasta ahora.';
+ byId('answerHistory').innerHTML=gradeResults.map((g,i)=>'<li>Respuesta '+(i+1)+': '+g.points+'/3 indicadores</li>').join('');
+}
+function makeReport(){
+ const points=gradeResults.reduce((sum,r)=>sum+r.points,0);
+ const percent=Math.round(100*points/9);
+ const details=gradeResults.filter(g=>g.signals[0]).length;
+ const examples=gradeResults.filter(g=>g.signals[1]).length;
+ const structure=gradeResults.filter(g=>g.signals[2]).length;
+ const checks=[
+  [details>=2,'Tus respuestas contienen suficiente detalle en '+details+' de 3 preguntas.','Agrega detalles concretos para explicar mejor tus ideas.'],
+  [examples>=2,'Usaste referencias a estudios, tareas, proyectos o experiencias en '+examples+' respuestas.','Incluye experiencias verdaderas o proyectos académicos que apoyen tus respuestas.'],
+  [structure>=2,'Organizaste varias respuestas con conectores o pasos.','Ordena tus ideas: situación, acción y aprendizaje.']
+ ];
+ byId('resultScore').textContent=percent+'/100';
+ byId('resultFeedback').innerHTML=checks.map(([ok,yes,no])=>'<li><span class="'+(ok?'ok':'warn')+'">'+(ok?'✓':'↗')+'</span>'+escapeHtml(ok?yes:no)+'</li>').join('');
+ byId('resultArea').classList.remove('hidden');
+ byId('showResult').classList.remove('hidden');
+ byId('sentStatus').textContent='✓ Entrevista completada. Tu calificación orientativa es '+percent+'/100.';
+ byId('showResult').focus({preventScroll:true});
+ byId('resultArea').scrollIntoView({behavior:'smooth',block:'start'});
+ toast('¡Listo! Calificación orientativa '+percent+'/100. Consulta el resultado final.');
+}
+let enviando = false;
+function enviarRespuesta(){
+ if(enviando || question>=3) return;
+ enviando = true;
+ try {
+   const input=byId('chatInput');
+   const txt=input.value.trim();
+   if(!txt){
+     byId('sentStatus').textContent='⚠ Escribe una respuesta o pulsa «Usar respuesta de ejemplo».';
+     input.focus();
+     return;
+   }
+   answers.push(txt);
+   const evaluation=scoreAnswer(txt); gradeResults.push(evaluation);
+   addMsg('user',txt);
+   const current=question+1;
+   addMsg('bot','✓ Respuesta '+current+' recibida. Evaluación orientativa: '+evaluation.points+'/3 indicadores.');
+   input.value=''; question++;
+   updateChatProgress(); updateLiveGrade();
+   byId('sentStatus').textContent='✓ Respuesta '+current+' registrada y calificada: '+evaluation.points+'/3. '+(question<3?'Sigue con la pregunta '+(question+1)+'.':'¡Mira tu calificación final más abajo!');
+   if(question<3){
+     addMsg('bot', 'Siguiente pregunta: '+jobs[job].qs[question]);
+     input.focus();
+     toast('Respuesta '+current+' enviada ✓ · Progreso '+question+'/3');
+   } else {
+     addMsg('bot','¡Terminaste! Ya tienes tu evaluación final.');
+     input.disabled=true;byId('sendAnswer').disabled=true;byId('sampleAnswer').disabled=true;
+     makeReport();
+   }
+ } catch(error){
+   byId('sentStatus').textContent='⚠ Se produjo un error: '+String(error.message||error)+'.';
+   console.error('Error al enviar la respuesta',error);
+ } finally {enviando = false;}
+}
+window.ECEnviarRespuesta=enviarRespuesta;
+byId('chatForm').addEventListener('submit',e=>{e.preventDefault();enviarRespuesta()});
+byId('jsStatus').textContent='✓ Simulador activo · Versión 3.0 · El botón «Enviar y evaluar» está listo.';
+byId('jsStatus').style.cssText='border:1px solid #1fae84;background:#102d2d;color:#85f2c4;font-weight:800;padding:10px;border-radius:9px;margin-bottom:12px';
+byId('showResult').addEventListener('click',()=>byId('resultArea').scrollIntoView({behavior:'smooth',block:'start'}));
+byId('sampleAnswer').addEventListener('click',()=>{if(question<3){const example=job==='dev'?demoAnswers[question]:['Soy estudiante y quiero aprender, aportar y crecer en un equipo de trabajo. Me interesa esta vacante porque se relaciona con mis habilidades y mi formación.','Durante mis estudios participé en proyectos grupales, organicé tareas y aprendí a resolver problemas con mis compañeros.','Primero comprendería la situación, pediría información si fuera necesario y propondría una solución. Después evaluaría el resultado para seguir mejorando.'][question];byId('chatInput').value=example;byId('chatInput').focus();toast('Respuesta de ejemplo lista. Haz clic en «Enviar respuesta».')}});
+byId('chatInput').addEventListener('keydown',e=>{if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();enviarRespuesta()}});
+byId('restartInterview').addEventListener('click',resetChat);
+function resetAll(){job='dev';screen=0;highest=0;byId('experience').value='Sin experiencia';byId('cvInput').value=demoCV;chooseJob('dev');screen=0;highest=0;navigate(0);toast('El camino feliz está listo para comenzar otra vez.');}
+byId('resetAll').addEventListener('click',resetAll);byId('restartFromEnd').addEventListener('click',resetAll);
+byId('downloadResult').addEventListener('click',()=>{const output=`ENTREVISTA CERO — DEMOSTRACIÓN ACADÉMICA\nVacante: ${jobs[job].title}\nExperiencia: ${byId('experience').value}\n\nRespuestas:\n${answers.map((s,i)=>(i+1)+'. '+s).join('\n\n')}\n\nCalificación orientativa: ${byId('resultScore').textContent}. Criterios: detalle, ejemplos y estructura del texto.\nEsta demostración usa reglas de texto simples y no cuenta con IA real.\n`;const file=new Blob([output],{type:'text/plain;charset=utf-8'});const url=URL.createObjectURL(file);const a=document.createElement('a');a.href=url;a.download='Entrevista_Cero_Resultado_Demo.txt';document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1200)});
+const candidateSite=new URLSearchParams(location.search).get('volver')||PROJECT_SITE_URL;
+if(/^https:\/\//.test(candidateSite)) {byId('backToProject').href=candidateSite;byId('backToProject').classList.remove('hidden');}
+chooseJob(job);screen=0;highest=0;updateNav();console.info('Entrevista Cero · v3.0 · simulador iniciado');
+})();
+</script>
+</body>
+</html>
